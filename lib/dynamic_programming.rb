@@ -85,3 +85,17 @@ class DynamicProgramming
   def maze_solver(maze, start_pos, end_pos)
   end
 end
+
+
+# lecture problems
+def max_sum_to_leaf(node)
+  if node.right.nil? && node.left.nil?
+    node.value
+  elsif node.right && node.left.nil?
+    max_sum_to_leaf(node.right) + node.value
+  elsif node.left && node.right.nil?
+    max_sum_to_leaf(node.left) + node.value
+  else
+    [max_sum_to_leaf(node.left), max_sum_to_leaf(node.right)].max
+  end
+end
