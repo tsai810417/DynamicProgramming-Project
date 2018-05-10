@@ -1,5 +1,6 @@
+require 'byebug'
 class DynamicProgramming
-
+  attr_accessor :caches
   def initialize
 
   end
