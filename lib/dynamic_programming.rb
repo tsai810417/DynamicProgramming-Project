@@ -10,6 +10,13 @@ class DynamicProgramming
   end
 
   def blair_nums(n)
+    if @blair_caches[n]
+      return @blair_caches[n]
+    else
+      @blair_caches[n] = blair_nums(n-1) + blair_nums(n-2) + 2*(n-1) - 1
+
+      return @blair_caches[n]
+    end
 
   end
 
