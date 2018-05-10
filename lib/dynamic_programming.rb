@@ -2,6 +2,10 @@ require 'byebug'
 class DynamicProgramming
   attr_accessor :caches
   def initialize
+    @blair_caches = {
+      1 => 1,
+      2 => 2
+    }
 
   end
 
