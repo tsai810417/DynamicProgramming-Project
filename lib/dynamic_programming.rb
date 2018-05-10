@@ -25,7 +25,33 @@ class DynamicProgramming
   end
 
   def frog_cache_builder(n)
+    frog_caches = {
+      0 => [[]], # add 3 to reach 3
+      1 => [[1]], # add 2 to reach 3
+      2 => [[1,1], [2]],  # add 1 to reach 3
+      3 => [[1,1,1], [2,1], [1,2], [3]]
+      # 4 => [[1,1,1,1], [2,1,1], [1,2,1], [1,1,2], [3,1], [1,3], [4]]
+    }
 
+    i = 4
+    while i <= n
+      if frog_caches[i].nil?
+        res = []
+        frog_caches[i-1].each do | el |
+          res.push(el + [1])
+        end
+        frog_caches[i-2].each do | el |
+          res.push(el + [2])
+        end
+        frog_caches[i-3].each do | el |
+          res.push(el + [3])
+        end
+        frog_caches[i] = res
+      end
+      i += 1
+    end
+
+    frog_caches[n]
   end
 
   def frog_hops_top_down(n)
