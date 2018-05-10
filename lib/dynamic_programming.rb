@@ -21,7 +21,7 @@ class DynamicProgramming
   end
 
   def frog_hops_bottom_up(n)
-
+    frog_cache_builder(n)
   end
 
   def frog_cache_builder(n)
