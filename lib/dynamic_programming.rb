@@ -7,6 +7,13 @@ class DynamicProgramming
       2 => 2
     }
 
+    @frog_caches = {
+      0 => [[]], # add 3 to reach 3
+      1 => [[1]], # add 2 to reach 3
+      2 => [[1,1], [2]],  # add 1 to reach 3
+      3 => [[1,1,1], [2,1], [1,2], [3]]
+      # 4 => [[1,1,1,1], [2,1,1], [1,2,1], [1,1,2], [3,1], [1,3], [4]]
+    }
   end
 
   def blair_nums(n)
